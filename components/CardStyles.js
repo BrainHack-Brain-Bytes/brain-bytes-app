@@ -1,15 +1,11 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const SCREEN_HEIGHT = Dimensions.get('window').height
-
 export default StyleSheet.create({
     card: {
-        height: SCREEN_HEIGHT - 120,
+        height: "80%",
         width: "90%",
         padding: 10,
         borderRadius: 20,
-        
-        
     },
     image: {
         borderRadius:5,
