@@ -1,21 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+//Code modified from https://blog.logrocket.com/how-to-make-tinder-like-card-animations-with-react-native/
+import React, {useRef,useState} from 'react';
+import { Text, View,  Dimensions, Image, } from 'react-native';
+import SwiperScreen from './screens/SwiperScreen'
+
+const SCREEN_HEIGHT = Dimensions.get('window').height
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return (<SwiperScreen></SwiperScreen>)
+
+}
