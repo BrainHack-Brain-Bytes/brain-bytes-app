@@ -11,7 +11,6 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function UserHomePage() {
   return (
-    <NavigationContainer>
       <View style={styles.container}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -40,7 +39,6 @@ export default function UserHomePage() {
         <Tab.Screen name="Messages" component={MessagesScreen} />
       </Tab.Navigator>
       </View>
-    </NavigationContainer>
   );
 }
 
