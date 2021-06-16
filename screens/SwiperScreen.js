@@ -13,18 +13,20 @@ export default function SwiperScreen({navigation}) {
   const handleOnRight = () => useSwiper.swipeRight()
   
   const [isDone, setDone] = useState(false);
+  //May overflow?
+  const [currentIndex,setCurrentIndex] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
 
-  function renderModal(){
+  function renderModal(card){
     return (
     <View style={styles.centeredView}>
       <View style={styles.modalView}>
-        <Text style={styles.modalText}>Hello World!</Text>
+        <Text style={styles.modalText}>Bio: {SAMPLE_ADVISORS[currentIndex].bio}</Text>
         <TouchableOpacity
           style={[styles.button, styles.buttonClose]}
           onPress={() => setModalVisible(!modalVisible)}
         >
-          <Text style={styles.textStyle}>Hide Modal</Text>
+          <Text style={styles.textStyle}>Close</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -61,6 +63,7 @@ export default function SwiperScreen({navigation}) {
           stackSize={SAMPLE_ADVISORS.length}
           showSecondCard
           onSwipedAll={()=>{setDone(true)}}
+          onSwiped={()=>{setCurrentIndex(currentIndex+1)}}
           backgroundColor="white"
           onTapCard = {()=> setModalVisible(true)}
         ></Swiper>
