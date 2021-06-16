@@ -13,32 +13,32 @@ export default function UserHomePage() {
   return (
     <NavigationContainer>
       <View style={styles.container}>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          gestureEnabled: true,
-          tabBarIcon: ({ focused, color }) => {
-            let iconName;
-  
-            if (route.name === "Home") {
-              iconName = "home"
-            } else if (route.name === "Messages") {
-              iconName = focused ? "envelope" : "envelope-o";
-            }
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            gestureEnabled: false,
+            tabBarIcon: ({ focused, color }) => {
+              let iconName;
 
-            return <FontAwesome name={iconName} size={20} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          showIcon: true,
-          showLabel: false,
-          activeTintColor: "tomato",
-          inactiveTintColor: "gray",
-        }}
-        swipeEnabled={false}
-      >
-        <Tab.Screen name="Home" component={SwiperScreen} />
-        <Tab.Screen name="Messages" component={MessagesScreen} />
-      </Tab.Navigator>
+              if (route.name === "Home") {
+                iconName = "home"
+              } else if (route.name === "Messages") {
+                iconName = focused ? "envelope" : "envelope-o";
+              }
+
+              return <FontAwesome name={iconName} size={20} color={color} />;
+            },
+          })}
+          tabBarOptions={{
+            showIcon: true,
+            showLabel: false,
+            activeTintColor: "tomato",
+            inactiveTintColor: "gray",
+          }}
+          swipeEnabled={false}
+        >
+          <Tab.Screen name="Home" component={SwiperScreen} />
+          <Tab.Screen name="Messages" component={MessagesScreen} />
+        </Tab.Navigator>
       </View>
     </NavigationContainer>
   );
