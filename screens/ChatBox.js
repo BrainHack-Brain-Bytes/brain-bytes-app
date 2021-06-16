@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GiftedChat, sendBotResponse } from 'react-native-gifted-chat';
 import { Text, View, FlatList, TouchableHighlight, Image } from "react-native";
 
 export default function RoomScreen({ navigation, route }) {
+
   const [messages, setMessages] = useState([
     {
       _id: 1,
-      text: 'Hello!',
+      text: 'Hello. Nice to meeting you.Please be ensure that everything we speak here well be confidential.What\'s the issue that you are facing? ',
       createdAt: new Date().getTime(),
       user: {
         _id: 2,
@@ -18,8 +19,9 @@ export default function RoomScreen({ navigation, route }) {
       text: 'New room created.',
       createdAt: new Date().getTime(),
       system: true
-    },
+    }
   ]);
+
 
   function appendNewMessage() {
     console.log("Hello World")
@@ -38,6 +40,7 @@ export default function RoomScreen({ navigation, route }) {
   function handleSend(newMessage = []) {
     setMessages(GiftedChat.append(messages, newMessage))
   }
+
 
 
   return (
