@@ -35,8 +35,8 @@ export default function UserHomePage() {
         }}
         swipeEnabled={false}
       >
-        <Tab.Screen name="Home" component={SwiperScreen} />
-        <Tab.Screen name="Messages" component={MessagesScreen} />
+        <Tab.Screen name="Home" component={SwiperScreen} initialParams={{ id: id }} />
+        <Tab.Screen name="Messages" component={MessagesScreen} initialParams={{ id: id }} />
       </Tab.Navigator>
       </View>
   );
@@ -46,6 +46,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
   },
 });

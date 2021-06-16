@@ -37,11 +37,7 @@ export default function SignIn ({route, navigation}) {
   )
 
   function onChangeText (key, val) {
-    setState(
-        x => {
-            return {...x, key:val}
-        }
-    )
+    setState({...state, [key]:val})
   }
 
   function signIn(state) {
@@ -55,10 +51,10 @@ return (
             <AppButton
             title='Seeking Help'
             onPress={() => { 
-                if (true | signIn(state, account) ) {
+                if (signIn(state) ) {
                     navigation.navigate('UserHome');
                 } else {
-                    alert(`You have entered an invalid username or password, login? ${signIn(state)}`)
+                    alert(`You have entered an invalid username or password, login?`)
                 }
                 }}
             />
@@ -93,10 +89,10 @@ return (
             <Button
             title='Sign In'
             onPress={() => { 
-                if (signIn(state, account)) {
+                if (signIn(state)) {
                     navigation.navigate('UserHome');
                 } else {
-                    alert(`You have entered an invalid username or password, login? ${signIn(state)}`)
+                    alert(`You have entered an invalid username or password, login?`)
                 }
                 }}
             />

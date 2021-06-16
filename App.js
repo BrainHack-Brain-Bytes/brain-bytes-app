@@ -21,7 +21,7 @@ export default function App() {
           <Stacker.Screen name='Register' component={SignUp}  />
           <Stacker.Screen name='UserHome' options={
             ({ navigation }) => ({
-            title: 'Swiper',
+            title: 'Home',
             headerLeft: () => null, 
             headerRight: () => {<AppButton title='logout' onPress={()=> navigation.navigate('HomeScreen')} />}
           })} component={UserHomePage} />
