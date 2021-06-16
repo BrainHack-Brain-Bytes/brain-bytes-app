@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GiftedChat, sendBotResponse } from 'react-native-gifted-chat';
 import { Text, View, FlatList, TouchableHighlight, Image } from "react-native";
 
-export default function RoomScreen({ navigation, route }) {
+export default function RoomScreen(props) {
 
   const [messages, setMessages] = useState([
     {
@@ -46,19 +46,12 @@ export default function RoomScreen({ navigation, route }) {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flexDirection: "row", borderBottomWidth: 1, borderColor: "#b7b7b7", height: "8%", backgroundColor: "#FFF2FC", borderRadius: 5 }}>
-        <TouchableHighlight
-          style={{ paddingLeft: 15, justifyContent: 'center', width: "10%", }}
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          <Text style={{ justifyContent: 'center', fontWeight: 'bold', fontSize: 20 }}> {"<"} </Text>
-        </TouchableHighlight>
+        
         <View style={{ marginLeft: 15, justifyContent: 'center' }}>
-          <Image source={route.params.image} style={{ width: 35, height: 35, borderRadius: 50 }} />
+          <Image source={props.image} style={{ width: 35, height: 35, borderRadius: 50 }} />
         </View>
         <View style={{ marginLeft: 15, justifyContent: 'center' }}>
-          <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{route.params.name} </Text>
+          <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{props.name} </Text>
         </View>
       </View>
       <GiftedChat
