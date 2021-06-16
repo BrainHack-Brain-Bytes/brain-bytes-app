@@ -15,7 +15,7 @@ export default function UserHomePage() {
       <View style={styles.container}>
         <Tab.Navigator
           screenOptions={({ route }) => ({
-            gestureEnabled: true,
+            gestureEnabled: false,
             tabBarIcon: ({ focused, color }) => {
               let iconName;
 
