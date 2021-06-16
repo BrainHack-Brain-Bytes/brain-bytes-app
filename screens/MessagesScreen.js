@@ -1,10 +1,19 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, FlatList, TouchableHighlight, Image } from "react-native";
+import ChatBox from "./ChatBox";
+import ChatList from "./ChatList";
+import SAMPLE_ADVISORS from '../assets/dataAdvisors';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 export default function MessagesScreen() {
-    return (
-      <View style={{alignContent: "center",justifyContent: "center", flex:1}}>
-        <Text style={{textAlign: "center"}}>This is a test message</Text>
-      </View>
-    );
-  }
+
+  const Stack = createStackNavigator();
+
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="List" component={ChatList} />
+      <Stack.Screen name="ChatWindow" component={ChatBox} />
+    </Stack.Navigator>
+  );
+}
