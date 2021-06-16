@@ -15,6 +15,7 @@ export default function SignUp ({navigation}) {
   function onChangeText (key, val) {
     setState({...state, [key]:val});
   }
+
   // function signUp (state) {
   //   const { username, password, email, phone_number } = state
   //   try {
@@ -24,16 +25,7 @@ export default function SignUp ({navigation}) {
   //     console.log('error signing up: ', err)
   //   }
   // }
-  const [photo, setPhoto] = useState(null);
 
-  function handleChoosePhoto() {
-    launchImageLibrary({ noData: true }, (response) => {
-      // console.log(response);
-      if (response) {
-        setPhoto(response);
-      }
-    });
-  };
   
 return (
       <View style={styles.container}>
@@ -70,7 +62,7 @@ return (
         <Button
           title='Sign Up'
           onPress={() => { 
-              navigation.navigate('HomeScreen', {account: state});
+              navigation.navigate('HomeScreen', {account: state} );
             }}
         />
       </View>

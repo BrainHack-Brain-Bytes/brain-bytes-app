@@ -18,8 +18,7 @@ const approved = [
 ]
 
 export default function SignIn ({route, navigation}) {
-  console.log(route);
-  
+  console.log(route)
   const [state , setState] = useState({
     username: '', password: ''
   })
@@ -29,14 +28,15 @@ export default function SignIn ({route, navigation}) {
   )
   
   function addRegistration (list, callback) {
-    setAccount(()=>{
+    console.log("before inside", account)
+    setAccount(
         [...list, callback]
-  });
-    console.log(account)
+  );
+    console.log("inside", account)
   }
 
-  if (route.name === 'Register') {
-    console.log('approved accounts', account);
+  if (typeof route.params !== 'undefined') {
+    console.log('after routed before, approved accounts', account);
 
       addRegistration(account, route.params.account);
   }
