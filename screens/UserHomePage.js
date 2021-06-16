@@ -9,9 +9,9 @@ import MessagesScreen from "./MessagesScreen"
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function UserHomePage() {
+export default function UserHomePage({route}) {
+  console.log('Hi from user Home page', route);
   return (
-    <NavigationContainer>
       <View style={styles.container}>
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -40,7 +40,6 @@ export default function UserHomePage() {
           <Tab.Screen name="Messages" component={MessagesScreen} />
         </Tab.Navigator>
       </View>
-    </NavigationContainer>
   );
 }
 
@@ -48,6 +47,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
   },
 });
