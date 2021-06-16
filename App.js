@@ -10,6 +10,7 @@ import AppButton from './components/Button'
 // export default function App() {
 //   return <UserHomePage></UserHomePage>
 // }
+import 'react-native-gesture-handler';
 
 const Stacker = createStackNavigator();
 
