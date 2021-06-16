@@ -11,7 +11,7 @@ export default function RoomScreen(props) {
       createdAt: new Date().getTime(),
       user: {
         _id: 2,
-        name: 'Test User'
+        name: 'James Tan'
       }
     },
     {
@@ -30,7 +30,7 @@ export default function RoomScreen(props) {
       createdAt: new Date().getTime() + 100000,
       user: {
         _id: 2,
-        name: 'Test User'
+        name: 'James Tan'
       }
     }
     setMessages(GiftedChat.append(messages, simulatedResponse))

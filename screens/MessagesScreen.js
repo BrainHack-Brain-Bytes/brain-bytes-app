@@ -2,9 +2,6 @@ import React,{useState} from "react";
 import { Text, View, FlatList, TouchableHighlight, Image, Modal } from "react-native";
 import ChatBox from "./ChatBox";
 import SAMPLE_ADVISORS from '../assets/dataAdvisors';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { State } from "react-native-gesture-handler";
 
 export default function MessagesScreen() {
 
@@ -35,7 +32,7 @@ export default function MessagesScreen() {
   
     return (
       <FlatList
-        data={SAMPLE_ADVISORS}
+        data={[SAMPLE_ADVISORS[0]]}
         renderItem={({ item }) => renderRow(item)}
       />
     );

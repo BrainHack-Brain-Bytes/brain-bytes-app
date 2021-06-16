@@ -10,7 +10,6 @@ import MessagesScreen from "./MessagesScreen"
 const Tab = createMaterialTopTabNavigator();
 
 export default function UserHomePage({route}) {
-  console.log('Hi from user Home page', route);
   return (
       <View style={styles.container}>
         <Tab.Navigator

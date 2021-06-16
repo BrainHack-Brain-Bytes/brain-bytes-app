@@ -9,8 +9,6 @@ import SAMPLE_ADVISORS from '../assets/dataAdvisors';
 export default function SwiperScreen({navigation}) {
   
   const useSwiper = useRef(null).current
-  const handleOnLeft = () => useSwiper.swipeLeft()
-  const handleOnRight = () => useSwiper.swipeRight()
   
   const [isDone, setDone] = useState(false);
   //May overflow?
