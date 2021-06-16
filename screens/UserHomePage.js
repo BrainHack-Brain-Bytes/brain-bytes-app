@@ -9,7 +9,8 @@ import MessagesScreen from "./MessagesScreen"
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function UserHomePage() {
+export default function UserHomePage({route}) {
+  console.log('Hi from user Home page', route);
   return (
       <View style={styles.container}>
       <Tab.Navigator
@@ -35,8 +36,8 @@ export default function UserHomePage() {
         }}
         swipeEnabled={false}
       >
-        <Tab.Screen name="Home" component={SwiperScreen} initialParams={{ id: id }} />
-        <Tab.Screen name="Messages" component={MessagesScreen} initialParams={{ id: id }} />
+        <Tab.Screen name="Home" component={SwiperScreen}  />
+        <Tab.Screen name="Messages" component={MessagesScreen} />
       </Tab.Navigator>
       </View>
   );

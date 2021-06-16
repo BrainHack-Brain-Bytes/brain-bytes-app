@@ -6,28 +6,34 @@ import {
   StyleSheet
 } from 'react-native'
 import { useState } from 'react'
+import { launchImageLibrary } from 'react-native-image-picker';
 
 export default function SignUp ({navigation}) {
   const [state , setState] = useState({
     username: '', password: '', email: '', phone_number: ''
   })
   function onChangeText (key, val) {
-    setState(
-        x => {
-            return {...x, key:val}
-        }
-    )
+    setState({...state, [key]:val});
   }
-  function signUp (state) {
-    const { username, password, email, phone_number } = state
-    try {
-      // here place your signup logic
-      console.log('user successfully signed up!: ', success)
-    } catch (err) {
-      console.log('error signing up: ', err)
-    }
-  }
- 
+  // function signUp (state) {
+  //   const { username, password, email, phone_number } = state
+  //   try {
+  //     // here place your signup logic
+  //     console.log('user successfully signed up!: ', success)
+  //   } catch (err) {
+  //     console.log('error signing up: ', err)
+  //   }
+  // }
+  const [photo, setPhoto] = useState(null);
+
+  function handleChoosePhoto() {
+    launchImageLibrary({ noData: true }, (response) => {
+      // console.log(response);
+      if (response) {
+        setPhoto(response);
+      }
+    });
+  };
   
 return (
       <View style={styles.container}>
@@ -60,11 +66,11 @@ return (
           placeholderTextColor='white'
           onChangeText={val => onChangeText('phone_number', val)}
         />
+
         <Button
           title='Sign Up'
           onPress={() => { 
-              signUp(state);
-              navigation.navigate('HomeScreen');
+              navigation.navigate('HomeScreen', {account: state});
             }}
         />
       </View>

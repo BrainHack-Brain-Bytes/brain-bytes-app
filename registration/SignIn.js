@@ -18,23 +18,30 @@ const approved = [
 ]
 
 export default function SignIn ({route, navigation}) {
-
+  console.log(route);
+  
   const [state , setState] = useState({
     username: '', password: ''
   })
-
+  
+  const [account, setAccount] = useState (
+    approved
+  )
+  
   function addRegistration (list, callback) {
     setAccount(()=>{
         [...list, callback]
   });
-  }
-  if (route.name === 'Register') {
-      addRegistration(account, route.params);
+    console.log(account)
   }
 
-  const [account, setAccount] = useState (
-      approved
-  )
+  if (route.name === 'Register') {
+    console.log('approved accounts', account);
+
+      addRegistration(account, route.params.account);
+  }
+
+
 
   function onChangeText (key, val) {
     setState({...state, [key]:val})
@@ -50,9 +57,9 @@ return (
             <View style={styles.button}>
             <AppButton
             title='Seeking Help'
-            onPress={() => { 
+            onPress={() => {
                 if (signIn(state) ) {
-                    navigation.navigate('UserHome');
+                    navigation.navigate('UserHome', {...state});
                 } else {
                     alert(`You have entered an invalid username or password, login?`)
                 }
@@ -78,7 +85,7 @@ return (
         />
         <TextInput
           style={styles.input}
-          placeholder='Password'
+          placeholder='Password' 
           secureTextEntry={true}
           autoCapitalize="none"
           placeholderTextColor='white'
@@ -90,7 +97,7 @@ return (
             title='Sign In'
             onPress={() => { 
                 if (signIn(state)) {
-                    navigation.navigate('UserHome');
+                    navigation.navigate('UserHome', {...state});
                 } else {
                     alert(`You have entered an invalid username or password, login?`)
                 }
